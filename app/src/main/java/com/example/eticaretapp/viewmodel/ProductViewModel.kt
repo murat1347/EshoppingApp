@@ -36,6 +36,19 @@ class ProductViewModel : ViewModel() {
 
     }
 
+    fun addtoBasket(product: Product)
+    {
+        if (basket.value!=null) {
+            val arrayList=ArrayList(basket.value)
+            arrayList.add(product)
+            basket.value = arrayList
+        }
+        else{
+            val arrayList = arrayListOf(product)
+            basket.value= arrayList
+        }
+
+    }
     override fun onCleared(){
         super.onCleared()
         job?.cancel()
